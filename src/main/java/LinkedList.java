@@ -11,7 +11,9 @@ public class LinkedList implements List {
             Node current = first;
 
             while(current.next != null) {
-                current = current.next;
+                current = current.next; //sprawdza, czy nastepny element jest null, jesli nie,
+                // przechodzi do nastepnego elementu i tak do konca, az trafi na element, ktory ma dalej null
+                // i tworzy wtedy newNode ponizej:
             }
 
             current.next = newNode;
@@ -60,7 +62,8 @@ public class LinkedList implements List {
             throw new IndexOutOfBoundsException("can't find index " + pos);
         }
 
-        beforeRemoved.next = beforeRemoved.next.next;
+        beforeRemoved.next = beforeRemoved.next.next; //beforeRemoved wskazuje na 3, ktorego next wskazuje na 4,
+        // a jej next na 6, czyli 3 next next wskazuje na 6 (opuszcza uchwyt na liczbe 3)
     }
 
     @Override
